@@ -10,12 +10,11 @@
  ******************************************************************************/
 package soot.jimple.infoflow.test.junit;
 
+import org.junit.Test;
+import soot.jimple.infoflow.IInfoflow;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
-
-import soot.jimple.infoflow.IInfoflow;
 
 /**
  * These tests check taint propagation in arrays, for instance the propagation

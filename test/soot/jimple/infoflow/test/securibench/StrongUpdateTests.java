@@ -15,7 +15,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import soot.jimple.infoflow.Infoflow;
+import infoflow.Infoflow;
 
 public class StrongUpdateTests extends JUnitTests {
 

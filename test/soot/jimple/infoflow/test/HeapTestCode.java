@@ -1389,19 +1389,5 @@ public class HeapTestCode {
         ConnectionManager cm = new ConnectionManager();
 		cm.publish(z.g);
 	}
-	
-	public void delayedReturnTest1() {
-		A a = new A();
-		B b = new B();
-		doAlias(b, a);
-		
-		a.b = TelephonyManager.getDeviceId();
-		ConnectionManager cm = new ConnectionManager();
-		cm.publish(b.attr.b);
-	}
-
-	private void doAlias(B b, A a) {
-		b.attr = a;
-	}
 
 }

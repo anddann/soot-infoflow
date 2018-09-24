@@ -24,12 +24,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import soot.jimple.infoflow.Infoflow;
+import infoflow.Infoflow;
 import soot.jimple.infoflow.config.ConfigSecuriBench;
-import soot.jimple.infoflow.entryPointCreators.DefaultEntryPointCreator;
-import soot.jimple.infoflow.entryPointCreators.IEntryPointCreator;
-import soot.jimple.infoflow.results.InfoflowResults;
-import soot.jimple.infoflow.taintWrappers.EasyTaintWrapper;
+import infoflow.entryPointCreators.DefaultEntryPointCreator;
+import infoflow.entryPointCreators.IEntryPointCreator;
+import infoflow.results.InfoflowResults;
+import infoflow.taintWrappers.EasyTaintWrapper;
 
 public abstract class JUnitTests {
 

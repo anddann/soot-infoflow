@@ -20,6 +20,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import soot.jimple.infoflow.IInfoflow;
+import soot.jimple.infoflow.InfoflowConfiguration;
 import soot.jimple.infoflow.config.IInfoflowConfig;
 import soot.jimple.infoflow.taintWrappers.EasyTaintWrapper;
 import soot.options.Options;
@@ -83,8 +84,10 @@ public class ImplicitFlowTests extends JUnitTests {
 		long timeBefore = System.nanoTime();
     	System.out.println("Starting convertTest...");
 
+    	int oldAPLength = InfoflowConfiguration.getAccessPathLength();
+    	InfoflowConfiguration.setAccessPathLength(1);
+    	
     	IInfoflow infoflow = initInfoflow();
-    	infoflow.getConfig().setAccessPathLength(1);
     	infoflow.getConfig().setInspectSinks(false);
 		infoflow.getConfig().setEnableImplicitFlows(true);
 		infoflow.getConfig().setEnableStaticFieldTracking(false);
@@ -94,6 +97,7 @@ public class ImplicitFlowTests extends JUnitTests {
 		infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
 		checkInfoflow(infoflow, 1);	
 
+		InfoflowConfiguration.setAccessPathLength(oldAPLength);	// this is a global setting! Restore it when we're done
 		System.out.println("convertTest took " + (System.nanoTime() - timeBefore) / 1E9 + " seconds");
 	}
 
@@ -318,8 +322,10 @@ public class ImplicitFlowTests extends JUnitTests {
 		long timeBefore = System.nanoTime();
     	System.out.println("Starting stringClassTest...");
     	
+    	int oldAPLength = InfoflowConfiguration.getAccessPathLength();
+    	InfoflowConfiguration.setAccessPathLength(1);
+    	
     	IInfoflow infoflow = initInfoflow();
-    	infoflow.getConfig().setAccessPathLength(1);
 		infoflow.getConfig().setInspectSinks(false);
 		infoflow.getConfig().setEnableImplicitFlows(true);
 		infoflow.getConfig().setEnableStaticFieldTracking(false);
@@ -329,6 +335,7 @@ public class ImplicitFlowTests extends JUnitTests {
 		infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
 		checkInfoflow(infoflow, 1);	
 
+		InfoflowConfiguration.setAccessPathLength(oldAPLength);	// this is a global setting! Restore it when we're done
 		System.out.println("stringClassTest took " + (System.nanoTime() - timeBefore) / 1E9 + " seconds");
 	}
 

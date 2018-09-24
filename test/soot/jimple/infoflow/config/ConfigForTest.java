@@ -13,9 +13,10 @@ package soot.jimple.infoflow.config;
 import java.util.LinkedList;
 import java.util.List;
 
+import infoflow.config.IInfoflowConfig;
 import soot.options.Options;
 
-public class ConfigForTest implements IInfoflowConfig{
+public class ConfigForTest implements IInfoflowConfig {
 
 	@Override
 	public void setSootOptions(Options options) {
